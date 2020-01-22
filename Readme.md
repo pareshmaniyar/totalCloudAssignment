@@ -1,3 +1,10 @@
+TO start on 3000 port:
+```
+npm install
+npm start
+```
+
+
 Problem statement: A school has created its timetable based on availability of six subject teachers (see Teacher wise class timetable PDF file). 
 Using this as source, also available as csv files per teacher, answer the following questions:
 

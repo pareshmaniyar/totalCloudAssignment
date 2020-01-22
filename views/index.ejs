@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+</style>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <% Object.keys(timetable).forEach(function(prop) { %>
+      <h2><%- prop %></h2>
+      <table>
+        <tr>
+        <% Object.keys(timetable[prop]).forEach(function(day) { %>
+          <th><%- day %></th>
+        <% }); %>
+        </tr>
+        <% for (var i = 0; i < 9; i++) { %>
+          <tr>
+            <% Object.keys(timetable[prop]).forEach(function(day) { %>
+              <td><%- timetable[prop][day][i] %></td>
+            <% }); %>
+          </tr>
+        <% } %>
+      </table>
+    <% }); %>
+  </body>
+</html>

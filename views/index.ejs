@@ -22,24 +22,56 @@
   }
 </style>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>Class-Wise Timetables</h1>
     <% Object.keys(timetable).forEach(function(prop) { %>
       <h2><%- prop %></h2>
       <table>
         <tr>
+          <th>Time</th>
         <% Object.keys(timetable[prop]).forEach(function(day) { %>
           <th><%- day %></th>
         <% }); %>
         </tr>
         <% for (var i = 0; i < 9; i++) { %>
           <tr>
+            <td><%- i+8 %></td>
             <% Object.keys(timetable[prop]).forEach(function(day) { %>
-              <td><%- timetable[prop][day][i] %></td>
+              <%if (timetable[prop][day][i]) { %>
+                <td><%- timetable[prop][day][i] %></td>
+              <% } else{ %>
+                <td></td>
+              <% } %>
             <% }); %>
           </tr>
         <% } %>
       </table>
     <% }); %>
+
+    <h1>Teacher-Wise Timetables</h1>
+
+    <% Object.keys(teacherSchedule).forEach(function(prop) { %>
+      <h2><%- prop %></h2>
+      <table>
+        <tr>
+          <th>Time</th>
+        <% Object.keys(teacherSchedule[prop]).forEach(function(day) { %>
+          <th><%- day %></th>
+        <% }); %>
+        </tr>
+        <% for (var i = 0; i < 9; i++) { %>
+          <tr>
+            <td><%- i+8 %></td>
+            <% Object.keys(teacherSchedule[prop]).forEach(function(day) { %>
+              <%if (teacherSchedule[prop][day][i]) { %>
+                <td><%- teacherSchedule[prop][day][i] %></td>
+              <% } else{ %>
+                <td></td>
+              <% } %>
+            <% }); %>
+          </tr>
+        <% } %>
+      </table>
+    <% }); %>
+
   </body>
 </html>
